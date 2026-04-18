@@ -4,21 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arvin | Portfolio</title>
-  <meta
-    name="description"
-    content="Portfolio for system monitoring, CRM tools, Google Sheets, data management, and SQL updates."
-  />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="logo">
+      <a href="#" class="logo">
         <div class="logo-icon">👋</div>
-        <div>Hi! I'm Arvin</div>
-      </div>
+        <span>Hi! I'm Arvin</span>
+      </a>
 
       <div class="nav-links">
+        <a href="#">Home</a>
         <a href="#services">Services</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
@@ -28,249 +25,94 @@
     </div>
   </nav>
 
-  <main>
-    <section class="hero container">
-      <div class="hero-copy reveal visible">
-        <p class="eyebrow" id="greeting-text">Good Morning,</p>
-        <h1>I Help Businesses Run Smoother Systems</h1>
-        <p class="lead">
-          I support businesses with system monitoring, CRM tools, and data management.
-          From cleaning data in Google Sheets to handling SQL updates, I focus on making
-          workflows more organized, efficient, and reliable.
-        </p>
+  <section class="hero container">
+    <div class="hero-copy">
+      <p class="eyebrow" id="greeting-text">Good Morning,</p>
+      <h1>I Help Businesses Run Smoother Systems</h1>
+      <p class="lead">
+        I support businesses with system monitoring, CRM tools, and data management.
+        From cleaning data in Google Sheets to handling SQL updates, I focus on making
+        workflows more organized, efficient, and reliable.
+      </p>
 
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Hire Me →</a>
-          <a href="#skills" class="btn btn-secondary">View Skills</a>
-        </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Hire Me</a>
+        <a href="#skills" class="btn btn-secondary">View Skills</a>
       </div>
+    </div>
 
-      <div class="showcase reveal visible">
-        <div class="light-sweep"></div>
+    <div class="hero-image">
+      <img src="assets/profile.jpg" alt="Arvin profile photo" />
+    </div>
+  </section>
 
-        <div class="stack">
-          <div class="ghost-card"></div>
-
-          <div class="main-card">
-            <div class="flip-wrap" id="profileFlip">
-              <div class="face front">
-                <div class="photo-area">
-                  <img src="assets/profile.jpg" alt="Arvin profile photo" />
-                </div>
-              </div>
-
-              <div class="face back">
-                <div class="avatar-shell">
-                  <div class="avatar-ring">
-                    <img src="assets/avatar.png" alt="Avatar version of Arvin" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <section class="section container" id="services">
+    <h2>Services</h2>
+    <div class="grid">
+      <div class="box">
+        <h3>System Monitoring</h3>
+        <p>Tracking systems and updates to keep operations running smoothly.</p>
       </div>
-    </section>
-
-    <section class="section container">
-      <div class="split-feature">
-        <div class="reveal">
-          <h2>What I Do Best</h2>
-          <p>
-            <span class="feature-emphasis">I improve systems and workflows</span>
-            to make daily operations smoother and more efficient.
-          </p>
-          <p>
-            I help businesses stay organized by monitoring systems, working with CRM tools,
-            updating SQL records, and keeping data clean and structured in Google Sheets.
-          </p>
-        </div>
-
-        <div class="mini-card-zone reveal">
-          <div class="light-sweep"></div>
-
-          <div class="mini-stack">
-            <div class="mini-back"></div>
-
-            <div class="mini-front">
-              <div class="avatar-panel">
-                <img src="assets/avatar.png" alt="Avatar version of Arvin" />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="box">
+        <h3>Data & Google Sheets</h3>
+        <p>Cleaning data, organizing sheets, and building structured trackers.</p>
       </div>
-    </section>
-
-    <section class="section container" id="services">
-      <div class="section-title reveal">
-        <h2>Services</h2>
-        <p>
-          I help businesses improve daily operations with cleaner systems,
-          better data handling, and stronger workflow support.
-        </p>
+      <div class="box">
+        <h3>CRM Tools</h3>
+        <p>Managing customer data and workflows efficiently.</p>
       </div>
-
-      <div class="services-grid">
-        <div class="glass service reveal">
-          <div class="service-icon">📡</div>
-          <h3>System Monitoring</h3>
-          <p>Tracking systems, processes, and updates to keep daily operations running smoothly.</p>
-        </div>
-
-        <div class="glass service reveal">
-          <div class="service-icon">📊</div>
-          <h3>Data & Google Sheets</h3>
-          <p>Cleaning data, organizing sheets, building trackers, and improving workflow visibility.</p>
-        </div>
-
-        <div class="glass service reveal">
-          <div class="service-icon">🧾</div>
-          <h3>CRM Tools</h3>
-          <p>Managing customer data, tracking activities, and keeping workflows organized inside CRM systems.</p>
-        </div>
-
-        <div class="glass service reveal">
-          <div class="service-icon">🗄️</div>
-          <h3>SQL Updates</h3>
-          <p>Handling SQL updates and structured database records with accuracy and consistency.</p>
-        </div>
+      <div class="box">
+        <h3>SQL Updates</h3>
+        <p>Handling database updates and structured records accurately.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section container" id="skills">
-      <div class="section-title reveal">
-        <h2>Skills</h2>
-        <p>
-          My focus is on reliable support, clean data, and systems that help businesses
-          stay organized and efficient.
-        </p>
+  <section class="section container" id="skills">
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="box"><h3>Data Management</h3></div>
+      <div class="box"><h3>Google Sheets</h3></div>
+      <div class="box"><h3>SQL</h3></div>
+      <div class="box"><h3>CRM & Monitoring</h3></div>
+    </div>
+  </section>
+
+  <section class="section container" id="projects">
+    <h2>Projects</h2>
+    <div class="grid two">
+      <div class="box">
+        <h3>Order Monitoring Workflow</h3>
+        <p>Monitored activity, tracked changes, and reduced manual checking.</p>
       </div>
-
-      <div class="services-grid">
-        <div class="glass service reveal">
-          <div class="service-icon">📁</div>
-          <h3>Data Management</h3>
-          <p>Cleaning, organizing, and maintaining structured data for better workflow clarity.</p>
-        </div>
-
-        <div class="glass service reveal">
-          <div class="service-icon">🧮</div>
-          <h3>Google Sheets</h3>
-          <p>Advanced formulas, data cleaning, workflow trackers, and structured sheet management.</p>
-        </div>
-
-        <div class="glass service reveal">
-          <div class="service-icon">💾</div>
-          <h3>SQL</h3>
-          <p>Database updates, structured data handling, and maintaining accurate records.</p>
-        </div>
-
-        <div class="glass service reveal">
-          <div class="service-icon">📈</div>
-          <h3>CRM & Monitoring</h3>
-          <p>Knowledgeable in CRM tools, system monitoring, and keeping processes running smoothly.</p>
-        </div>
+      <div class="box">
+        <h3>Google Sheets Tracking System</h3>
+        <p>Built structured workflows for cleaner data and easier daily management.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section container" id="projects">
-      <div class="section-title reveal">
-        <h2>Featured Projects</h2>
-        <p>
-          Examples of work focused on operations support, monitoring,
-          and better workflow management.
-        </p>
+  <section class="section container" id="contact">
+    <h2>Contact</h2>
+    <div class="grid two">
+      <div class="box">
+        <p><strong>Email:</strong> arvinphilippoliga@gmail.com</p>
+        <p><strong>WhatsApp:</strong> +971 54 428 3795</p>
+        <p><strong>GitHub:</strong> github.com/LuffyAnonymous</p>
       </div>
-
-      <div class="projects-grid">
-        <div class="glass project reveal">
-          <div class="project-tag">System Monitoring</div>
-          <h3>Order Monitoring Workflow</h3>
-          <p>
-            Built a workflow that checks activity, tracks changes, and keeps operations
-            updated in real time.
-          </p>
-          <ul>
-            <li>Monitored new order activity</li>
-            <li>Tracked updates accurately</li>
-            <li>Reduced repeated manual checking</li>
-          </ul>
-          <div class="project-result">Result: smoother monitoring and faster response</div>
-        </div>
-
-        <div class="glass project reveal">
-          <div class="project-tag">Data Management</div>
-          <h3>Google Sheets Tracking System</h3>
-          <p>
-            Created structured workflows for cleaner data handling, better visibility,
-            and easier daily management.
-          </p>
-          <ul>
-            <li>Improved spreadsheet organization</li>
-            <li>Supported cleaner records and updates</li>
-            <li>Made workflows easier to manage</li>
-          </ul>
-          <div class="project-result">Result: cleaner data and better operational clarity</div>
-        </div>
+      <div class="box">
+        <p>I’m available for freelance and remote work.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section container" id="contact">
-      <div class="section-title reveal">
-        <h2>Let’s Work Together</h2>
-        <p>
-          If you need help with system monitoring, CRM tools, data cleaning,
-          Google Sheets, or SQL updates, I’m available for freelance and remote work.
-        </p>
-      </div>
-
-      <div class="contact-wrap">
-        <div class="glass contact-card reveal">
-          <h3>Contact Details</h3>
-          <p>Use the details below to reach me directly.</p>
-
-          <div class="contact-link">
-            <div>
-              <strong>Email</strong><br />
-              <span>arvinphilippoliga@gmail.com</span>
-            </div>
-            <a href="mailto:arvinphilippoliga@gmail.com">Open</a>
-          </div>
-
-          <div class="contact-link">
-            <div>
-              <strong>WhatsApp</strong><br />
-              <span>+971 54 428 3795</span>
-            </div>
-            <a href="https://wa.me/971544283795" target="_blank">Chat</a>
-          </div>
-
-          <div class="contact-link">
-            <div>
-              <strong>GitHub</strong><br />
-              <span>github.com/LuffyAnonymous</span>
-            </div>
-            <a href="https://github.com/LuffyAnonymous" target="_blank">Visit</a>
-          </div>
-        </div>
-
-        <div class="glass contact-card reveal">
-          <h3>Need reliable support for your systems?</h3>
-          <p>
-            I can help with CRM tools, SQL updates, system monitoring,
-            and clean data handling in Google Sheets.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:arvinphilippoliga@gmail.com">Send an Email</a>
-            <a class="btn btn-secondary" href="https://wa.me/971544283795" target="_blank">Message on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script src="js/main.js"></script>
+  <script>
+    const greetingEl = document.getElementById("greeting-text");
+    const hour = new Date().getHours();
+    let greeting = "Good Evening,";
+    if (hour < 12) greeting = "Good Morning,";
+    else if (hour < 18) greeting = "Good Afternoon,";
+    greetingEl.textContent = greeting;
+  </script>
 </body>
 </html>
