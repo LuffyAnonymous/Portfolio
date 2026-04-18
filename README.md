@@ -1,7 +1,7 @@
 <h1 align="center">Arvin Portfolio</h1>
 
 <p align="center">
-  <img src="assets/cover.png" alt="Portfolio Cover" width="100%">
+  <img src="assets/Cover.png" alt="Portfolio Cover" width="100%">
 </p>
 
 <p align="center">
