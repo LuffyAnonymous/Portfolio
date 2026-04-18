@@ -4,1005 +4,643 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arvin | Automation Virtual Assistant</title>
-  <meta name="description" content="Automation Virtual Assistant portfolio for workflow automation, Python bots, dashboards, web scraping, and Google Sheets systems." />
+  <meta name="description" content="Premium portfolio for an Automation Virtual Assistant specializing in automation systems, bots, dashboards, and workflow optimization." />
   <style>
     :root {
-      --bg: #07111f;
-      --bg-soft: rgba(15, 23, 42, 0.72);
-      --panel: rgba(15, 23, 42, 0.84);
-      --panel-2: rgba(17, 24, 39, 0.92);
-      --text: #e5eefc;
-      --muted: #9db0cc;
-      --line: rgba(255,255,255,0.08);
-      --brand: #4f8cff;
-      --brand-2: #69e0ff;
-      --glow: 0 20px 60px rgba(79, 140, 255, 0.25);
-      --radius: 24px;
+      --bg:#040b1b;
+      --bg2:#071634;
+      --panel:rgba(11,22,48,0.55);
+      --panel-strong:rgba(12,20,43,0.72);
+      --line:rgba(150,190,255,0.18);
+      --text:#f5f7ff;
+      --muted:#b9c7eb;
+      --brand:#4f8cff;
+      --brand2:#7ad8ff;
+      --glow:0 0 40px rgba(79,140,255,.35);
+      --radius:28px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(79,140,255,0.18), transparent 30%),
-        radial-gradient(circle at 85% 15%, rgba(105,224,255,0.14), transparent 22%),
-        linear-gradient(180deg, #06101c 0%, #081321 40%, #07101c 100%);
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .bg-orb, .bg-orb-2, .grid-overlay {
-      position: fixed;
-      inset: auto;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .bg-orb {
-      width: 420px;
-      height: 420px;
-      left: -120px;
-      top: 80px;
-      background: radial-gradient(circle, rgba(79,140,255,0.25), transparent 68%);
-      filter: blur(10px);
-      animation: floatOne 11s ease-in-out infinite;
-    }
-
-    .bg-orb-2 {
-      width: 500px;
-      height: 500px;
-      right: -150px;
-      top: 420px;
-      background: radial-gradient(circle, rgba(105,224,255,0.17), transparent 70%);
-      filter: blur(16px);
-      animation: floatTwo 14s ease-in-out infinite;
-    }
-
-    .grid-overlay {
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(180deg, rgba(255,255,255,0.45), transparent 80%);
-      opacity: 0.28;
-    }
-
-    .wrap {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(7, 14, 25, 0.55);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .nav-inner {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      display: grid;
-      place-items: center;
-      color: white;
-      box-shadow: var(--glow);
-      font-weight: 800;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: var(--muted);
-      transition: 0.25s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      background: rgba(255,255,255,0.05);
-    }
-
-    .hero {
-      padding: 76px 0 46px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(105,224,255,0.18);
-      background: rgba(255,255,255,0.03);
-      color: #cceaff;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-      margin-bottom: 18px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #50fa9b;
-      box-shadow: 0 0 14px rgba(80,250,155,0.85);
-      animation: pulse 1.8s infinite;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.7rem, 6vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -0.045em;
-      max-width: 760px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #ffffff, #7ac8ff 45%, #77f0ff 90%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .lead {
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 700px;
-      line-height: 1.8;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 16px;
-      border: 1px solid transparent;
-      font-weight: 700;
-      transition: 0.25s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      color: #06101c;
-      box-shadow: var(--glow);
-    }
-
-    .btn-secondary {
-      border-color: rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero-card {
-      position: relative;
-      padding: 24px;
-      border-radius: 30px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-      overflow: hidden;
-      min-height: 480px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -20% auto auto -10%;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(79,140,255,0.45), transparent 60%);
-      filter: blur(14px);
-    }
-
-    .profile-flip-wrap {
-      display: grid;
-      place-items: center;
-      perspective: 1200px;
-      margin-bottom: 4px;
-    }
-
-    .profile-flip {
-      width: 100%;
-      max-width: 290px;
-      height: 290px;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 1s ease;
-    }
-
-    .profile-flip.is-flipped {
-      transform: rotateY(180deg);
-    }
-
-    .profile-face {
-      position: absolute;
-      inset: 0;
-      border-radius: 28px;
-      backface-visibility: hidden;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: linear-gradient(180deg, rgba(13, 22, 38, 0.95), rgba(10, 17, 29, 0.95));
-      box-shadow: 0 20px 50px rgba(0,0,0,0.28);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .profile-front img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .profile-image-frame {
-      width: 100%;
-      height: 100%;
-      border-radius: 22px;
-      overflow: hidden;
-      position: absolute;
-      inset: 0;
-    }
-
-    .profile-front::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0 0;
-      height: 42%;
-      background: linear-gradient(180deg, transparent, rgba(4,10,18,0.92));
-    }
-
-    .profile-back {
-      transform: rotateY(180deg);
-      background: radial-gradient(circle at top, rgba(79,140,255,0.22), transparent 35%), linear-gradient(180deg, rgba(13, 22, 38, 0.98), rgba(10, 17, 29, 0.98));
-    }
-
-    .avatar-circle {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 3.2rem;
-      font-weight: 800;
-      color: white;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      box-shadow: 0 18px 40px rgba(79,140,255,0.28);
-      margin-bottom: 18px;
-    }
-
-    .profile-caption {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 20px;
-      z-index: 2;
-      text-align: center;
-    }
-
-    .profile-caption strong {
-      display: block;
-      font-size: 1.3rem;
-      margin-bottom: 6px;
-      color: white;
-    }
-
-    .profile-caption span {
-      color: #c8daef;
-      font-size: 0.95rem;
-    }
-
-    .screen {
-      position: relative;
-      background: rgba(5,10,18,0.88);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 18px;
-      overflow: hidden;
-    }
-
-    .screen-top {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
+        radial-gradient(circle at 20% 15%, rgba(95,121,255,.18), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(85,183,255,.14), transparent 24%),
+        linear-gradient(180deg, #030817 0%, #06112a 45%, #040b1b 100%);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(255,255,255,.14) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 75% 60%, rgba(255,255,255,.12) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 10% 75%, rgba(255,255,255,.10) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 65% 15%, rgba(255,255,255,.10) 0 1px, transparent 1.6px);
+      background-size: 220px 220px, 260px 260px, 180px 180px, 200px 200px;
+      opacity:.45;
+      pointer-events:none;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(120,170,255,.06), transparent 60%),
+        linear-gradient(120deg, transparent 25%, rgba(122,216,255,.1) 48%, transparent 62%),
+        linear-gradient(300deg, transparent 20%, rgba(79,140,255,.08) 45%, transparent 70%);
+      mix-blend-mode:screen;
+      animation: drift 16s linear infinite alternate;
+      pointer-events:none;
+    }
+
+    .container{
+      width:min(1180px, calc(100% - 34px));
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(4,10,24,.55);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(140,180,255,.12);
+    }
+
+    .nav-inner{
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:1.1rem;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+
+    .logo-icon{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      box-shadow:var(--glow);
+      font-size:1.2rem;
+      color:#081121;
+      font-weight:900;
+    }
+
+    .nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .nav-links a{
+      color:var(--muted);
+      padding:10px 14px;
+      border-radius:999px;
+      transition:.25s ease;
+    }
+    .nav-links a:hover{background:rgba(255,255,255,.05);color:#fff}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:52px;padding:0 24px;border-radius:16px;
+      font-weight:700;border:1px solid transparent;
+      transition:.25s ease;text-decoration:none;color:inherit;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#081121;box-shadow:0 14px 34px rgba(79,140,255,.3);
+    }
+    .btn-secondary{
+      border-color:rgba(255,255,255,.1);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+    }
+    .btn:hover{transform:translateY(-2px)}
 
-    .screen-top span {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
+    .hero{
+      min-height:calc(100vh - 82px);
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:40px;
+      align-items:center;
+      padding:64px 0 56px;
     }
 
-    .terminal-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      color: #dbeafe;
-      font-size: 0.95rem;
+    .eyebrow{
+      font-size:clamp(1.4rem,2.8vw,2.4rem);
+      color:#eef4ff;
+      margin:0 0 10px;
+      opacity:.95;
     }
 
-    .terminal-line small {
-      color: #76f7b3;
-      white-space: nowrap;
+    h1{
+      margin:0;
+      font-size:clamp(3rem,6.7vw,5.6rem);
+      line-height:.95;
+      letter-spacing:-.05em;
+      max-width:620px;
     }
 
-    .floating-stat {
-      position: absolute;
-      right: 22px;
-      bottom: 22px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(7, 17, 31, 0.9);
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.28);
-      animation: floatThree 5s ease-in-out infinite;
+    .lead{
+      max-width:560px;
+      margin:24px 0 0;
+      color:var(--muted);
+      font-size:1.08rem;
+      line-height:1.8;
     }
 
-    .floating-stat strong {
-      display: block;
-      font-size: 1.7rem;
-      margin-bottom: 4px;
-      color: #8bddff;
-    }
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin: 12px 0 72px;
+    .showcase{
+      position:relative;
+      min-height:720px;
+      display:grid;
+      place-items:center;
     }
 
-    .metric {
-      padding: 24px;
-      border-radius: 22px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-      backdrop-filter: blur(14px);
+    .light-sweep{
+      position:absolute;
+      inset:8% -8% 2% -6%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(110,165,255,.08), transparent 44%),
+        linear-gradient(140deg, transparent 28%, rgba(130,180,255,.16) 46%, transparent 62%),
+        linear-gradient(25deg, transparent 35%, rgba(122,216,255,.12) 50%, transparent 65%);
+      filter:blur(4px);
+      animation: glowMove 8s ease-in-out infinite alternate;
+      pointer-events:none;
     }
 
-    .metric strong {
-      display: block;
-      font-size: 2rem;
-      color: white;
-      margin-bottom: 8px;
+    .stack{
+      position:relative;
+      width:min(390px, 88%);
+      aspect-ratio: .74;
+      perspective:1200px;
     }
 
-    .metric span {
-      color: var(--muted);
+    .ghost-card,.main-card{
+      position:absolute; inset:0;
+      border-radius:30px;
+      background:linear-gradient(180deg, rgba(15,32,72,.45), rgba(9,18,39,.68));
+      border:1px solid rgba(173,213,255,.22);
+      box-shadow:0 22px 60px rgba(0,0,0,.34), 0 0 35px rgba(116,170,255,.12);
+      backdrop-filter:blur(14px);
     }
 
-    section {
-      padding: 24px 0 78px;
+    .ghost-card{
+      transform:translate(84px, 56px) scale(.93);
+      opacity:.75;
     }
 
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 24px;
-    }
+    .main-card{padding:16px; overflow:hidden;}
 
-    .section-heading h2 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.04em;
+    .flip-wrap{
+      position:relative;
+      width:100%; height:100%;
+      transform-style:preserve-3d;
+      transition:transform 1s ease;
     }
+    .flip-wrap.is-flipped{transform:rotateY(180deg)}
 
-    .section-heading p {
-      margin: 0;
-      max-width: 620px;
-      color: var(--muted);
-      line-height: 1.8;
+    .face{
+      position:absolute; inset:0;
+      backface-visibility:hidden;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(10,18,36,.75), rgba(8,15,30,.96));
     }
+    .face.back{transform:rotateY(180deg)}
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    .photo-area{
+      position:absolute; inset:0;
+      overflow:hidden;
     }
-
-    .glass {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    .photo-area img{
+      width:100%; height:100%; object-fit:cover; display:block;
     }
-
-    .glass:hover {
-      transform: translateY(-6px);
-      border-color: rgba(121, 197, 255, 0.28);
-      box-shadow: 0 22px 50px rgba(0,0,0,0.25);
+    .photo-area::after{
+      content:"";
+      position:absolute; inset:auto 0 0 0; height:34%;
+      background:linear-gradient(180deg, transparent, rgba(7,12,24,.94));
     }
 
-    .service-card {
-      padding: 22px;
-      min-height: 220px;
-      position: relative;
-      overflow: hidden;
+    .face-label{
+      position:absolute;
+      left:18px; right:18px; bottom:18px;
+      z-index:2; text-align:center;
     }
-
-    .service-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      font-size: 1.4rem;
-      background: linear-gradient(135deg, rgba(79,140,255,0.22), rgba(105,224,255,0.18));
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 18px;
+    .face-label strong{
+      display:block; font-size:1rem; margin-bottom:6px; color:#fff;
     }
+    .face-label span{color:#d5e4ff; font-size:.95rem}
 
-    .service-card h3, .project-card h3, .skill-card h3 { margin: 0 0 10px; }
-    .service-card p, .project-card p, .skill-card p, .contact-panel p { color: var(--muted); line-height: 1.75; }
-
-    .skill-layout {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 18px;
+    .avatar-shell{
+      height:100%; display:grid; place-items:center; padding:28px;
+      background:
+        radial-gradient(circle at 50% 22%, rgba(255,196,104,.2), transparent 28%),
+        linear-gradient(180deg, rgba(12,20,42,.88), rgba(7,14,28,.98));
     }
-
-    .skill-card {
-      padding: 26px;
+    .avatar-ring{
+      width:180px;height:180px;border-radius:50%;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,#ffcc73,#ff9d42 55%, #7ad8ff);
+      padding:4px;
+      box-shadow:0 16px 40px rgba(0,0,0,.34), 0 0 40px rgba(255,180,90,.18);
     }
-
-    .skill-bars {
-      display: grid;
-      gap: 18px;
-      margin-top: 18px;
+    .avatar-core{
+      width:100%;height:100%;border-radius:50%;
+      background:radial-gradient(circle at 30% 25%, #1c355f, #0a1327 70%);
+      display:grid;place-items:center;
+      color:#fff;font-size:3.6rem;font-weight:800;
     }
 
-    .bar-row {
-      display: grid;
-      gap: 8px;
+    .switch-pill{
+      margin-top:22px;
+      display:inline-flex;align-items:center;gap:12px;
+      padding:12px 16px;border-radius:999px;
+      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+      color:#d9e7ff;font-weight:600;
     }
-
-    .bar-row span {
-      color: #dbeafe;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
+    .toggle{
+      width:44px;height:24px;border-radius:999px;background:rgba(79,140,255,.5);position:relative;
     }
-
-    .bar {
-      width: 100%;
-      height: 10px;
-      border-radius: 999px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.06);
+    .toggle::after{
+      content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:#fff;
     }
 
-    .bar > i {
-      display: block;
-      height: 100%;
-      width: 0;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--brand), var(--brand-2));
-      box-shadow: 0 0 18px rgba(79,140,255,0.35);
-      transition: width 1.4s ease;
+    .section{
+      padding:72px 0;
     }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+    .split-feature{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
     }
 
-    .project-card {
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-      min-height: 320px;
+    h2{
+      margin:0 0 18px;
+      font-size:clamp(2.1rem,4vw,3.3rem);
+      line-height:1.05;
+      letter-spacing:-.04em;
+      max-width:640px;
     }
 
-    .project-tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      color: #c7e7ff;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 16px;
+    .section p{
+      color:var(--muted);
+      line-height:1.85;
+      font-size:1.05rem;
+      max-width:600px;
     }
 
-    .project-list {
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.8;
+    .feature-emphasis{
+      color:#fff;
+      font-weight:800;
     }
 
-    .project-result {
-      margin-top: 16px;
-      color: #97e8ff;
-      font-weight: 700;
+    .mini-card-zone{
+      position:relative;
+      min-height:520px;
+      display:grid;place-items:center;
     }
 
-    .project-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -40px auto;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(79,140,255,0.18), transparent 70%);
+    .mini-stack{
+      position:relative;width:min(360px, 86%);aspect-ratio:.78;
     }
-
-    .results {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    .mini-back,.mini-front{
+      position:absolute;inset:0;border-radius:28px;
+      background:linear-gradient(180deg, rgba(15,32,72,.4), rgba(9,18,39,.72));
+      border:1px solid rgba(173,213,255,.2);
+      backdrop-filter:blur(12px);
+      box-shadow:0 22px 60px rgba(0,0,0,.3);
     }
+    .mini-back{transform:translate(-34px, 24px) scale(.92); opacity:.72}
+    .mini-front{padding:16px; overflow:hidden}
 
-    .result-card {
-      padding: 24px;
-      text-align: center;
+    .avatar-panel{
+      position:absolute; inset:0; border-radius:22px; overflow:hidden;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(255,190,92,.42), transparent 24%),
+        linear-gradient(180deg, rgba(12,20,42,.86), rgba(7,14,28,.98));
+      display:grid; place-items:center;
     }
-
-    .result-card strong {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, #fff, #76dfff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .avatar-panel::before{
+      content:"";
+      position:absolute; top:48px; width:220px; height:220px; border-radius:50%;
+      background:radial-gradient(circle, rgba(255,173,74,.62), rgba(255,173,74,.18) 55%, transparent 72%);
+      filter:blur(8px);
     }
-
-    .contact-panel {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      align-items: stretch;
+    .avatar-emoji{
+      position:relative; z-index:2;
+      width:168px;height:168px;border-radius:50%;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, #142e57, #0b1428);
+      color:#fff;font-size:4rem;font-weight:800;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 10px 30px rgba(0,0,0,.32);
     }
-
-    .contact-box, .cta-box {
-      padding: 28px;
+    .avatar-bottom{
+      position:absolute;left:18px;right:18px;bottom:18px;text-align:center;z-index:2;
     }
+    .avatar-bottom strong{display:block;font-size:1rem;margin-bottom:8px}
+    .avatar-bottom span{color:#d5e4ff}
 
-    .contact-links {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
+    .services-grid,.projects-grid,.results-grid{
+      display:grid; gap:18px;
     }
+    .services-grid{grid-template-columns:repeat(4,1fr)}
+    .projects-grid{grid-template-columns:repeat(2,1fr)}
+    .results-grid{grid-template-columns:repeat(4,1fr)}
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+    .glass{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:26px;
+      backdrop-filter:blur(14px);
+      box-shadow:0 20px 50px rgba(0,0,0,.2);
+      transition:.25s ease;
     }
-
-    .contact-item span { color: var(--muted); }
+    .glass:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(0,0,0,.24)}
 
-    .cta-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+    .service,.project,.result-card,.contact-card{padding:24px}
+    .service-icon{
+      width:56px;height:56px;border-radius:18px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(79,140,255,.22), rgba(122,216,255,.18));
+      border:1px solid rgba(255,255,255,.08);
+      margin-bottom:16px;font-size:1.35rem;
     }
+    .service h3,.project h3{margin:0 0 10px}
+    .service p,.project p,.contact-card p,.result-card span{color:var(--muted);line-height:1.75}
 
-    .cta-box::before {
-      content: "";
-      position: absolute;
-      inset: auto auto -80px -60px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(105,224,255,0.18), transparent 70%);
+    .section-title{
+      margin-bottom:24px;
+      display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;
     }
+    .section-title p{margin:0;max-width:620px}
 
-    footer {
-      padding: 20px 0 60px;
-      color: var(--muted);
-      text-align: center;
+    .project-tag{
+      display:inline-flex;padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+      font-size:.84rem;color:#d7e6ff;margin-bottom:14px;
     }
+    .project ul{padding-left:18px;color:var(--muted);line-height:1.8}
+    .project-result{margin-top:12px;color:#99e5ff;font-weight:700}
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    .result-card{text-align:center}
+    .result-card strong{
+      display:block;font-size:2.15rem;margin-bottom:8px;
+      background:linear-gradient(135deg,#fff,#87dcff);-webkit-background-clip:text;background-clip:text;color:transparent;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .contact-wrap{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;
     }
-
-    @keyframes floatOne {
-      0%,100% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(30px) translateX(18px); }
+    .contact-link{
+      display:flex;justify-content:space-between;align-items:center;gap:14px;
+      padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
+      margin-top:14px;
     }
+    .contact-link span{color:var(--muted)}
 
-    @keyframes floatTwo {
-      0%,100% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(-24px) translateX(-20px); }
+    footer{
+      padding:22px 0 50px;
+      color:var(--muted);text-align:center;
     }
 
-    @keyframes floatThree {
-      0%,100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
 
-    @keyframes pulse {
-      0%,100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.25); opacity: 0.8; }
-    }
+    @keyframes drift{from{transform:translateX(-2%) translateY(-1%)}to{transform:translateX(2%) translateY(1%)}}
+    @keyframes glowMove{from{transform:translateX(-10px) translateY(8px)}to{transform:translateX(12px) translateY(-10px)}}
 
-    @media (max-width: 1100px) {
-      .hero, .skill-layout, .contact-panel { grid-template-columns: 1fr; }
-      .card-grid, .metrics, .results { grid-template-columns: repeat(2, 1fr); }
-      .project-grid { grid-template-columns: 1fr; }
+    @media (max-width: 1080px){
+      .hero,.split-feature,.contact-wrap{grid-template-columns:1fr}
+      .services-grid,.results-grid{grid-template-columns:repeat(2,1fr)}
+      .projects-grid{grid-template-columns:1fr}
+      .showcase{min-height:580px}
     }
-
-    @media (max-width: 720px) {
-      .nav-inner { padding: 12px 0; }
-      .nav-links { display: none; }
-      .hero { padding-top: 48px; }
-      .card-grid, .metrics, .results { grid-template-columns: 1fr; }
-      .section-heading { flex-direction: column; align-items: start; }
-      .hero-card { min-height: auto; }
-      .floating-stat { position: static; margin-top: 18px; }
+    @media (max-width: 720px){
+      .nav-links{display:none}
+      .hero{padding-top:34px; min-height:auto}
+      .services-grid,.results-grid{grid-template-columns:1fr}
+      .stack{width:min(330px, 100%)}
+      .ghost-card{transform:translate(46px, 34px) scale(.93)}
+      h1{max-width:100%}
     }
   </style>
 </head>
 <body>
-  <div class="bg-orb"></div>
-  <div class="bg-orb-2"></div>
-  <div class="grid-overlay"></div>
-
   <nav class="nav">
-    <div class="wrap nav-inner">
-      <a href="#home" class="brand">
-        <span class="brand-mark">A</span>
-        <span>Arvin Portfolio</span>
-      </a>
+    <div class="container nav-inner">
+      <div class="logo">
+        <div class="logo-icon">⚙</div>
+        <div>Automation Virtual Assistant</div>
+      </div>
       <div class="nav-links">
         <a href="#services">Services</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#results">Results</a>
         <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn-primary">Get In Touch</a>
       </div>
     </div>
   </nav>
 
-  <main id="home" class="wrap">
-    <section class="hero">
+  <main>
+    <section class="hero container">
       <div class="reveal visible">
-        <div class="pill"><span class="dot"></span> <span id="greeting-text">Good day</span> — Available for freelance and remote work</div>
-        <h1>
-          I build <span class="gradient-text">smart automation systems</span>
-          that save time and remove repetitive work.
-        </h1>
-        <p class="lead">
-          I help businesses automate operations with Python bots, web scraping, Google Sheets systems, dashboards, and real-time alert workflows. My focus is building tools that are practical, reliable, and easy to use in real business operations.
-        </p>
+        <p class="eyebrow" id="greeting-text">Good Morning,,</p>
+        <h1>I Build Automation Systems</h1>
+        <p class="lead">I create bots, dashboards, and workflow systems to replace repetitive manual work and make daily operations smoother.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">See My Work</a>
-          <a class="btn btn-secondary" href="#contact">Hire Me</a>
+          <a href="#contact" class="btn btn-primary">Get In Touch →</a>
         </div>
       </div>
 
-      <div class="hero-card reveal visible">
-        <div class="profile-flip-wrap">
-          <div class="profile-flip" id="profileFlip">
-            <div class="profile-face profile-front">
-              <div class="profile-image-frame">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Profile photo" />
+      <div class="showcase reveal visible">
+        <div class="light-sweep"></div>
+        <div class="stack">
+          <div class="ghost-card"></div>
+          <div class="main-card">
+            <div class="flip-wrap" id="profileFlip">
+              <div class="face front">
+                <div class="photo-area">
+                  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx
+NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy
+MjIyMjL/wAARCALqAfQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAABAUDBgcCAP/EADkQAAIBAwMBBQYEBQMFAQAAAAECAwAE
+RQUSIRMxQVFhBhMicYGRobETQlJy0fAHFSMzU2KSwuH/xAAZAQADAQEBAAAAAAAAAAAAAAACAwQBBQD/xAArEQACAgIBAwIFBQEAAAAA
+AAABAgARAxIhMUETIlFhcfAUMkKBodHh8P/aAAwDAQACEQMRAD8A+HwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwco5xeJ3+9Z1r3OTW5V4vL0dM3
+c7n2eZlJ7n6V6k3Y2r1W8r4yF5M7t0lE7s4dJr8v+NVX0V2+VdVqQ0W1b1b2O3a+1s1N/8Ayn3b5xV+JfFlv8A3pWc9cZ2y9nS8I7zU3K8
+mu6vG2V8r7J5nH6W9U2b0W7y2m3m2HkUq7Ck9l5k0q8Wn6YV7f1Gm9u6PjR6lqO7q6H9Jqf6y2v2m6p3l5n8J+N7FJ6uV9m3t+qK7H2r8h+
+Vt2p7nRrM3pN9+12e2e4r8r4Y6vU7q7dX1uU9r7r6b+W4lqv2m5FfL8a7vS1mXrV+X6I+ry2vQ1N9b7b+M6r4vE5O7nN7mkl4m3l7b1f4Z
+YxW1Gz7m9q3l+KX3xv0W6X1h1a6m7j4m6V8dXl4bS6+e9V0Wn7k7+M7p5v0vVf0+M2r7nM7Kp9l7WcXrYz4p9v5j1nL8k7dN9nWc7V8b7JX
+AAB1V2k6b7m5y9W9j3e6v4q6K9mXk8Pzf2q4n2rY6q4m9M9vTt8JvT9W9mvl9e5c9vZr7b6n7y9m5w9+K2v7m9m+4Wv1O+M7M9W8S8u8y7
+Lw9w4+uK4n0S7W8vV8q9mW7Y9Vv6q5e3k7fG6u1t4vM3Wn9X7n8l9uH8mX9mZ8V4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" alt="Arvin profile photo" />
+                </div>
+                <div class="face-label">
+                  <strong>Automation Virtual Assistant</strong>
+                </div>
               </div>
-              <div class="profile-caption">
-                <strong>Arvin</strong>
-                <span>Automation Virtual Assistant</span>
-              </div>
-            </div>
-            <div class="profile-face profile-back">
-              <div class="avatar-circle">A</div>
-              <div class="profile-caption">
-                <strong>Automation Expert</strong>
-                <span>Python • Sheets • Alerts • Dashboards</span>
+              <div class="face back">
+                <div class="avatar-shell">
+                  <div>
+                    <div class="avatar-ring"><div class="avatar-core">A</div></div>
+                    <div class="switch-pill">✔ Tech VA <span class="toggle"></span></div>
+                  </div>
+                </div>
+                <div class="face-label">
+                  <strong>Automation Virtual Assistant</strong>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="screen">
-          <div class="screen-top"><span></span><span></span><span></span></div>
-          <div class="terminal-line"><span>Order monitor initialized...</span><small>LIVE</small></div>
-          <div class="terminal-line"><span>Tracking new orders across platforms</span><small>24/7</small></div>
-          <div class="terminal-line"><span>Telegram alert sent successfully</span><small>OK</small></div>
-          <div class="terminal-line"><span>Duplicate protection active</span><small>SAFE</small></div>
-          <div class="terminal-line"><span>Google Sheets workflow synced</span><small>SYNCED</small></div>
-          <div class="terminal-line"><span>Dashboard status updated</span><small>READY</small></div>
+    <section class="section container">
+      <div class="split-feature">
+        <div class="reveal">
+          <h2>What I Do Best</h2>
+          <p><span class="feature-emphasis">I build automation systems that replace</span> repetitive manual work.</p>
+          <p>Instead of hiring someone to do tasks daily, I create systems that do it automatically — 24/7.</p>
         </div>
-        <div class="floating-stat">
-          <strong>90%</strong>
-          <span>Less manual checking</span>
+        <div class="mini-card-zone reveal">
+          <div class="light-sweep"></div>
+          <div class="mini-stack">
+            <div class="mini-back"></div>
+            <div class="mini-front">
+              <div class="avatar-panel">
+                <div class="avatar-emoji">A</div>
+                <div class="avatar-bottom">
+                  <strong>Automation Virtual Assistant</strong>
+                  <span>Tech VA</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="metrics">
-      <div class="metric reveal"><strong>24/7</strong><span>automation-focused workflows</span></div>
-      <div class="metric reveal"><strong>Python</strong><span>bots, scripts, scraping, monitoring</span></div>
-      <div class="metric reveal"><strong>Sheets</strong><span>dashboards, formulas, automation</span></div>
-      <div class="metric reveal"><strong>Fast</strong><span>alerting and reporting systems</span></div>
-    </div>
-
-    <section id="services">
-      <div class="section-heading reveal">
-        <div>
-          <h2>Services</h2>
-        </div>
-        <p>I create practical systems that help businesses work faster, avoid errors, and cut down repetitive tasks.</p>
+    <section class="section container" id="services">
+      <div class="section-title reveal">
+        <h2>Services</h2>
+        <p>I help businesses automate repetitive work, track data better, and get alerts faster.</p>
       </div>
-      <div class="card-grid">
-        <article class="glass service-card reveal">
+      <div class="services-grid">
+        <div class="glass service reveal">
           <div class="service-icon">⚙️</div>
           <h3>Automation Bots</h3>
-          <p>Custom Python bots for repetitive tasks, monitoring, data capture, and long-running automated workflows.</p>
-        </article>
-        <article class="glass service-card reveal">
+          <p>Python bots for monitoring, scraping, order checking, notifications, and repeated tasks.</p>
+        </div>
+        <div class="glass service reveal">
           <div class="service-icon">📊</div>
           <h3>Google Sheets Systems</h3>
-          <p>Dashboards, formulas, Apps Script workflows, validation, duplicate checks, and cleaner status management.</p>
-        </article>
-        <article class="glass service-card reveal">
+          <p>Dashboards, formulas, workflow automation, duplicate detection, and status-based systems.</p>
+        </div>
+        <div class="glass service reveal">
           <div class="service-icon">🌐</div>
           <h3>Web Scraping</h3>
-          <p>Reliable data extraction from websites for reporting, monitoring, alerts, and business process support.</p>
-        </article>
-        <article class="glass service-card reveal">
+          <p>Structured data extraction for websites, operations monitoring, and change tracking.</p>
+        </div>
+        <div class="glass service reveal">
           <div class="service-icon">🔔</div>
-          <h3>Alert Systems</h3>
-          <p>Instant Telegram or email notifications for new activity, status changes, operational issues, and updates.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="section-heading reveal">
-        <div>
-          <h2>Core Skills</h2>
-        </div>
-        <p>My work combines technical automation with operations-focused thinking, so the final system is useful, not just impressive.</p>
-      </div>
-
-      <div class="skill-layout">
-        <div class="glass skill-card reveal">
-          <h3>What I Work With</h3>
-          <p>Python automation, Playwright, requests, Google Sheets, Apps Script workflows, Telegram integrations, dashboard logic, data tracking, and web scraping.</p>
-          <div class="skill-bars">
-            <div class="bar-row">
-              <span>Python Automation <b>95%</b></span>
-              <div class="bar"><i data-width="95%"></i></div>
-            </div>
-            <div class="bar-row">
-              <span>Google Sheets Systems <b>92%</b></span>
-              <div class="bar"><i data-width="92%"></i></div>
-            </div>
-            <div class="bar-row">
-              <span>Web Scraping <b>90%</b></span>
-              <div class="bar"><i data-width="90%"></i></div>
-            </div>
-            <div class="bar-row">
-              <span>Alert Workflows <b>93%</b></span>
-              <div class="bar"><i data-width="93%"></i></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass skill-card reveal">
-          <h3>Why Clients Hire Me</h3>
-          <p>I focus on systems that solve real bottlenecks. That means faster checking, cleaner organization, fewer missed updates, and less manual effort day after day.</p>
-          <div class="skill-bars">
-            <div class="bar-row">
-              <span>Workflow Thinking <b>94%</b></span>
-              <div class="bar"><i data-width="94%"></i></div>
-            </div>
-            <div class="bar-row">
-              <span>Reliability Focus <b>91%</b></span>
-              <div class="bar"><i data-width="91%"></i></div>
-            </div>
-            <div class="bar-row">
-              <span>Problem Solving <b>96%</b></span>
-              <div class="bar"><i data-width="96%"></i></div>
-            </div>
-            <div class="bar-row">
-              <span>Business Usefulness <b>95%</b></span>
-              <div class="bar"><i data-width="95%"></i></div>
-            </div>
-          </div>
+          <h3>Alert Workflows</h3>
+          <p>Telegram and email alerts for live updates, order statuses, and workflow triggers.</p>
         </div>
       </div>
     </section>
 
-    <section id="projects">
-      <div class="section-heading reveal">
-        <div>
-          <h2>Featured Projects</h2>
-        </div>
-        <p>These projects show the kind of systems I can build for operations teams, online businesses, and workflow-heavy admin tasks.</p>
+    <section class="section container" id="skills">
+      <div class="section-title reveal">
+        <h2>Skills</h2>
+        <p>Focused on practical systems that save time and improve daily business operations.</p>
       </div>
+      <div class="services-grid">
+        <div class="glass service reveal"><div class="service-icon">🐍</div><h3>Python Automation</h3><p>Playwright, requests, monitoring logic, JSON state, and 24/7 task flows.</p></div>
+        <div class="glass service reveal"><div class="service-icon">📈</div><h3>Dashboards</h3><p>Operational views for orders, alerts, tracking, and workflow visibility.</p></div>
+        <div class="glass service reveal"><div class="service-icon">🧩</div><h3>Problem Solving</h3><p>Turning manual tasks into cleaner repeatable systems.</p></div>
+        <div class="glass service reveal"><div class="service-icon">🤖</div><h3>Integrations</h3><p>Telegram, spreadsheets, scrapers, and business process automation.</p></div>
+      </div>
+    </section>
 
-      <div class="project-grid">
-        <article class="glass project-card reveal">
-          <span class="project-tag">Monitoring Automation</span>
+    <section class="section container" id="projects">
+      <div class="section-title reveal">
+        <h2>Featured Projects</h2>
+        <p>Examples of systems I can build for teams, operations, and online businesses.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="glass project reveal">
+          <div class="project-tag">Monitoring Automation</div>
           <h3>Order Monitoring Bot</h3>
-          <p>Built a system that logs in, checks new orders automatically, extracts key order details, and sends real-time Telegram alerts.</p>
-          <ul class="project-list">
-            <li>Automatic order detection</li>
-            <li>Duplicate prevention with stored history</li>
-            <li>Extracts order ID, customer, sale date, and source</li>
-            <li>Designed for recurring scans and monitoring</li>
+          <p>Automatically checks orders, extracts details, and sends alerts in real time.</p>
+          <ul>
+            <li>Detects new orders automatically</li>
+            <li>Avoids duplicates with history tracking</li>
+            <li>Sends Telegram updates instantly</li>
           </ul>
-          <div class="project-result">Result: reduced manual checking by up to 90%</div>
-        </article>
-
-        <article class="glass project-card reveal">
-          <span class="project-tag">Change Detection</span>
-          <h3>Match Alert System</h3>
-          <p>Created a scraper that monitors ticket pages, detects meaningful changes, and alerts only when sales or ballot information updates.</p>
-          <ul class="project-list">
-            <li>Monitors official availability pages</li>
-            <li>Filters home matches and relevant pages</li>
-            <li>Only sends alerts when something changes</li>
-            <li>Built for practical daily monitoring</li>
+          <div class="project-result">Result: Less manual checking</div>
+        </div>
+        <div class="glass project reveal">
+          <div class="project-tag">Change Detection</div>
+          <h3>Ticket Alert System</h3>
+          <p>Monitors ticket pages and notifies only when sale information changes.</p>
+          <ul>
+            <li>Tracks important updates</li>
+            <li>Filters relevant match pages</li>
+            <li>Reduces unnecessary checking</li>
           </ul>
-          <div class="project-result">Result: real-time updates without checking pages manually</div>
-        </article>
-
-        <article class="glass project-card reveal">
-          <span class="project-tag">Spreadsheet Automation</span>
-          <h3>Google Sheets Workflow System</h3>
-          <p>Automated spreadsheet flows for status handling, duplicate detection, row movement, formatting, and time tracking.</p>
-          <ul class="project-list">
-            <li>Moves rows based on status changes</li>
-            <li>Highlights and flags duplicates</li>
-            <li>Applies timestamps and formatting rules</li>
-            <li>Improves speed and clarity for teams</li>
-          </ul>
-          <div class="project-result">Result: cleaner and faster data management</div>
-        </article>
-
-        <article class="glass project-card reveal">
-          <span class="project-tag">Dashboard Design</span>
-          <h3>Multi-Platform Operations Dashboard</h3>
-          <p>Built a monitoring concept that combines multiple sources into one cleaner interface for faster action and better visibility.</p>
-          <ul class="project-list">
-            <li>Shows source of each order</li>
-            <li>Designed for live status visibility</li>
-            <li>Helps reduce switching between platforms</li>
-            <li>Built for operations-focused use</li>
-          </ul>
-          <div class="project-result">Result: centralized monitoring in one place</div>
-        </article>
+          <div class="project-result">Result: Faster action when pages update</div>
+        </div>
       </div>
     </section>
 
-    <section id="results">
-      <div class="section-heading reveal">
-        <div>
-          <h2>Results</h2>
-        </div>
-        <p>I focus on outcomes that matter in real work: time saved, fewer missed updates, better organization, and faster decisions.</p>
+    <section class="section container">
+      <div class="section-title reveal">
+        <h2>Results</h2>
+        <p>Built to improve speed, visibility, and consistency in day-to-day workflows.</p>
       </div>
-      <div class="results">
-        <div class="glass result-card reveal"><strong>90%</strong><span>less manual checking</span></div>
-        <div class="glass result-card reveal"><strong>24/7</strong><span>automation-ready workflows</span></div>
-        <div class="glass result-card reveal"><strong>Faster</strong><span>alerts and operations response</span></div>
-        <div class="glass result-card reveal"><strong>Cleaner</strong><span>data and process handling</span></div>
+      <div class="results-grid">
+        <div class="glass result-card reveal"><strong>24/7</strong><span>automation-ready systems</span></div>
+        <div class="glass result-card reveal"><strong>Faster</strong><span>tracking and alerts</span></div>
+        <div class="glass result-card reveal"><strong>Cleaner</strong><span>workflow handling</span></div>
+        <div class="glass result-card reveal"><strong>Less</strong><span>manual work daily</span></div>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="section-heading reveal">
-        <div>
-          <h2>Let’s Work Together</h2>
-        </div>
-        <p>If you need help automating repetitive work, building a better tracking system, or creating dashboards and alerts, I’m available for freelance and remote projects.</p>
+    <section class="section container" id="contact">
+      <div class="section-title reveal">
+        <h2>Let’s Work Together</h2>
+        <p>If you need automation, monitoring, dashboards, or workflow systems, I’m available for freelance and remote work.</p>
       </div>
-
-      <div class="contact-panel">
-        <div class="glass contact-box reveal">
+      <div class="contact-wrap">
+        <div class="glass contact-card reveal">
           <h3>Contact Details</h3>
-          <p>Replace the details below with your real email, WhatsApp number, and GitHub profile before publishing.</p>
-          <div class="contact-links">
-            <div class="contact-item">
-              <div>
-                <strong>Email</strong>
-                <span>your@email.com</span>
-              </div>
-              <a href="mailto:your@email.com">Open</a>
-            </div>
-            <div class="contact-item">
-              <div>
-                <strong>WhatsApp</strong>
-                <span>+971 00 000 0000</span>
-              </div>
-              <a href="https://wa.me/971000000000" target="_blank">Chat</a>
-            </div>
-            <div class="contact-item">
-              <div>
-                <strong>GitHub</strong>
-                <span>github.com/yourusername</span>
-              </div>
-              <a href="https://github.com/yourusername" target="_blank">Visit</a>
-            </div>
-          </div>
+          <p>Replace the details below with your real contact information before publishing.</p>
+          <div class="contact-link"><div><strong>Email</strong><br><span>your@email.com</span></div><a href="mailto:arvinphilippoliga@gmail.com">Open</a></div>
+          <div class="contact-link"><div><strong>WhatsApp</strong><br><span>+971 54 428 3795</span></div><a href="https://wa.me/971544283795" target="_blank">Chat</a></div>
+          <div class="contact-link"><div><strong>GitHub</strong><br><span>github.com/https://github.com/LuffyAnonymous</span></div><a href="https://github.com/LuffyAnonymous" target="_blank">Visit</a></div>
         </div>
-
-        <div class="glass cta-box reveal">
+        <div class="glass contact-card reveal">
           <h3>Need a system that saves time?</h3>
-          <p>I can help with monitoring bots, data automation, Google Sheets workflows, dashboards, and alert systems that actually make work easier.</p>
+          <p>I can help with bots, Google Sheets automation, tracking systems, and alert workflows that reduce repetitive work.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="mailto:arvinphilippoliga@gmail.com">Send an Email</a>
             <a class="btn btn-secondary" href="https://wa.me/+971544283795" target="_blank">Message on WhatsApp</a>
@@ -1013,52 +651,29 @@
   </main>
 
   <footer>
-    <div class="wrap">
-      © 2026 Arvin — Automation Virtual Assistant Portfolio
-    </div>
+    <div class="container">© 2026 Arvin — Automation Virtual Assistant Portfolio</div>
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.14 });
-
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-    const bars = document.querySelectorAll('.bar i');
-    const barObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.width = entry.target.dataset.width;
-        }
-      });
-    }, { threshold: 0.4 });
-
-    bars.forEach((bar) => barObserver.observe(bar));
-
     const greetingEl = document.getElementById('greeting-text');
-    const now = new Date();
-    const hour = now.getHours();
-    let greeting = 'Good day';
-    if (hour < 12) {
-      greeting = 'Good morning';
-    } else if (hour < 18) {
-      greeting = 'Good afternoon';
-    } else {
-      greeting = 'Good evening';
-    }
-    if (greetingEl) greetingEl.textContent = greeting;
+    const hour = new Date().getHours();
+    let greeting = 'Good Evening';
+    if (hour < 12) greeting = 'Good Morning';
+    else if (hour < 18) greeting = 'Good Afternoon';
+    if (greetingEl) greetingEl.textContent = greeting + ',,';
 
     const flipCard = document.getElementById('profileFlip');
     if (flipCard) {
-      setInterval(() => {
-        flipCard.classList.toggle('is-flipped');
-      }, 5000);
+      setInterval(() => flipCard.classList.toggle('is-flipped'), 5000);
     }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
