@@ -56,7 +56,7 @@ body::after {
 }
 
 .container {
-  width: min(1360px, calc(100% - 40px));
+  width: min(1280px, calc(100% - 48px));
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -72,7 +72,7 @@ body::after {
 }
 
 .nav-inner {
-  min-height: 88px;
+  min-height: 84px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -153,12 +153,12 @@ body::after {
 }
 
 .hero {
-  min-height: calc(100vh - 88px);
+  min-height: calc(100vh - 84px);
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.9fr);
-  gap: 48px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+  gap: 56px;
   align-items: center;
-  padding: 56px 0 56px;
+  padding: 44px 0 48px;
 }
 
 .hero-copy {
@@ -174,15 +174,15 @@ body::after {
 
 h1 {
   margin: 0;
-  font-size: clamp(4.2rem, 8vw, 6.8rem);
-  line-height: 0.9;
+  font-size: clamp(4rem, 7vw, 6.2rem);
+  line-height: 0.92;
   letter-spacing: -0.055em;
-  max-width: 920px;
+  max-width: 860px;
 }
 
 .lead {
   max-width: 700px;
-  margin: 28px 0 0;
+  margin: 24px 0 0;
   color: var(--muted);
   font-size: 1.08rem;
   line-height: 1.8;
@@ -192,19 +192,19 @@ h1 {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
 .showcase {
   position: relative;
-  min-height: 760px;
+  min-height: 620px;
   display: grid;
   place-items: center;
 }
 
 .light-sweep {
   position: absolute;
-  inset: 8% -8% 2% -6%;
+  inset: 6% -10% 4% -6%;
   background:
     radial-gradient(circle at 50% 50%, rgba(110, 165, 255, 0.08), transparent 44%),
     linear-gradient(140deg, transparent 28%, rgba(130, 180, 255, 0.16) 46%, transparent 62%),
@@ -216,8 +216,8 @@ h1 {
 
 .stack {
   position: relative;
-  width: min(500px, 100%);
-  aspect-ratio: 0.75;
+  width: min(440px, 100%);
+  aspect-ratio: 0.78;
   perspective: 1200px;
 }
 
@@ -233,13 +233,13 @@ h1 {
 }
 
 .ghost-card {
-  transform: translate(78px, 56px) scale(0.93);
-  opacity: 0.65;
+  transform: translate(64px, 40px) scale(0.93);
+  opacity: 0.55;
 }
 
 .ghost-card-2 {
-  transform: translate(130px, 120px) scale(0.85);
-  opacity: 0.38;
+  transform: translate(104px, 98px) scale(0.86);
+  opacity: 0.3;
 }
 
 .main-card {
@@ -298,8 +298,8 @@ h1 {
 }
 
 .avatar-ring {
-  width: 260px;
-  height: 260px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   padding: 4px;
   background: linear-gradient(135deg, #ffcc73, #ff9d42 55%, #7ad8ff);
@@ -322,7 +322,7 @@ h1 {
 .split-feature {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 56px;
   align-items: center;
 }
 
@@ -336,7 +336,7 @@ h1 {
 .mini-stack {
   position: relative;
   width: min(360px, 86%);
-  aspect-ratio: 0.78;
+  aspect-ratio: 0.82;
 }
 
 .mini-back,
@@ -580,7 +580,7 @@ h2 {
   }
 
   .showcase {
-    min-height: 620px;
+    min-height: 560px;
   }
 
   .services-grid,
