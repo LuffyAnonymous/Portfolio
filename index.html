@@ -2,34 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arvin | Portfolio</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arvin Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav class="nav">
   <div class="container nav-inner">
 
-    <!-- ✅ FIXED LOGO -->
     <a href="#" class="logo">
       <div class="logo-icon">👋</div>
       <span>Hi! I'm Arvin</span>
     </a>
 
-    <!-- ✅ HOME BUTTON ADDED -->
     <div class="nav-links">
       <a href="#">Home</a>
       <a href="#services">Services</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <a href="#contact" class="btn btn-primary">Hire Me</a>
+      <a href="#contact" class="btn">Hire Me</a>
     </div>
 
   </div>
 </nav>
 
-<!-- KEEP EVERYTHING ELSE SAME BELOW -->
+<!-- HERO -->
+<section class="hero container">
+
+  <div class="hero-left">
+    <p id="greeting">Good Morning,</p>
+
+    <h1>I Help Businesses</h1>
+    <h1>Run Smoother Systems</h1>
+
+    <p class="lead">
+      I support businesses with system monitoring, CRM tools, and data management.
+      From cleaning data in Google Sheets to handling SQL updates, I focus on making workflows efficient.
+    </p>
+
+    <div class="actions">
+      <a href="#contact" class="btn">Hire Me</a>
+      <a href="#skills" class="btn outline">View Skills</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="assets/profile.jpg" alt="profile">
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+<section class="section container" id="services">
+  <h2>Services</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>System Monitoring</h3>
+      <p>Tracking systems and keeping operations smooth.</p>
+    </div>
+
+    <div class="card">
+      <h3>Data & Google Sheets</h3>
+      <p>Cleaning data and building structured trackers.</p>
+    </div>
+
+    <div class="card">
+      <h3>CRM Tools</h3>
+      <p>Managing customer data and workflows.</p>
+    </div>
+
+    <div class="card">
+      <h3>SQL Updates</h3>
+      <p>Handling structured database updates.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section container" id="skills">
+  <h2>Skills</h2>
+
+  <div class="grid">
+    <div class="card">Data Management</div>
+    <div class="card">Google Sheets</div>
+    <div class="card">SQL</div>
+    <div class="card">CRM & Monitoring</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section container" id="projects">
+  <h2>Projects</h2>
+
+  <div class="grid two">
+    <div class="card">
+      <h3>Order Monitoring</h3>
+      <p>Tracking activity and reducing manual checking.</p>
+    </div>
+
+    <div class="card">
+      <h3>Google Sheets System</h3>
+      <p>Structured workflows for cleaner data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section container" id="contact">
+  <h2>Contact</h2>
+
+  <p>Email: arvinphilippoliga@gmail.com</p>
+  <p>WhatsApp: +971 54 428 3795</p>
+</section>
+
+<script>
+const g = document.getElementById("greeting");
+const h = new Date().getHours();
+
+if (h < 12) g.innerText = "Good Morning,";
+else if (h < 18) g.innerText = "Good Afternoon,";
+else g.innerText = "Good Evening,";
+</script>
+
+</body>
+</html>
