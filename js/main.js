@@ -17,7 +17,7 @@ const flipCard = document.getElementById("profileFlip");
 if (flipCard) {
   setInterval(() => {
     flipCard.classList.toggle("is-flipped");
-  }, 3000);
+  }, 5000);
 }
 
 const observer = new IntersectionObserver(
