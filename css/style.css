@@ -10,39 +10,33 @@ body {
   margin: auto;
 }
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  background: #06122c;
+  z-index: 10;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 60px 0;
+  padding: 15px 0;
 }
 
-.hero-left {
-  max-width: 550px;
-}
-
-/* GREETING */
-#greeting {
-  margin-bottom: 15px;
-  color: #eee;
-}
-
-/* LOGO (NOT CLICKABLE) */
+/* LOGO (NOT CLICKABLE, NO PURPLE EVER) */
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
+  color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
-  margin-bottom: 20px;
 }
 
 .logo span {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -52,27 +46,59 @@ body {
   border-radius: 12px;
 }
 
-/* HEADINGS */
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-links a {
+  color: #b9c7eb;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+/* BUTTON */
+.btn-primary {
+  background: #4f8cff;
+  color: black !important;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  padding: 60px 0;
+}
+
 .hero-left h1 {
   margin: 0;
   font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 0.95;
+  line-height: 1;
 }
 
-/* TEXT */
 .lead {
   margin-top: 20px;
   color: #b9c7eb;
   line-height: 1.6;
 }
 
-/* BUTTONS */
 .actions {
   margin-top: 25px;
   display: flex;
   gap: 12px;
 }
 
+/* BUTTONS */
 a {
   text-decoration: none;
 }
@@ -91,12 +117,7 @@ a {
   color: white;
 }
 
-/* IMAGE FIX */
-.hero-right {
-  display: flex;
-  justify-content: center;
-}
-
+/* IMAGE */
 .hero-right img {
   width: 100%;
   max-width: 450px;
