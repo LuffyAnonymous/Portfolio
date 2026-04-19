@@ -2,117 +2,211 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arvin Portfolio</title>
-
+  <meta
+    name="description"
+    content="Portfolio for system monitoring, CRM tools, Google Sheets, data management, and SQL updates."
+  />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="logo">
+        <div class="logo-icon">⚙</div>
+        <span>Arvin Portfolio</span>
+      </div>
 
-<!-- NAV (FIXED, CLEAN) -->
-<nav class="nav">
-  <div class="container nav-inner">
-
-    <!-- NOT CLICKABLE -->
-    <div class="logo">
-      <div class="logo-icon">👋</div>
-      <span>Hi! I'm Arvin</span>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn-primary">Hire Me</a>
+      </div>
     </div>
+  </nav>
 
-    <!-- ONLY ADD HOME HERE -->
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#services">Services</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="btn-primary">Hire Me</a>
-    </div>
+  <main>
+    <section class="hero container">
+      <div class="hero-copy reveal visible">
+        <p class="eyebrow" id="greeting-text">Good Morning,</p>
 
-  </div>
-</nav>
+        <h1>I Help Businesses Run Smoothly and Efficiently</h1>
 
-<!-- HERO (UNCHANGED STRUCTURE) -->
-<section class="hero container">
+        <p class="lead">
+          I support businesses with system monitoring, CRM tools, and data
+          management. From cleaning data in Google Sheets to handling SQL
+          updates, I focus on making workflows more organized, efficient, and
+          reliable.
+        </p>
 
-  <div class="hero-left">
-    <p id="greeting">Good Morning,</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Hire Me →</a>
+          <a href="#skills" class="btn btn-secondary">View Skills</a>
+        </div>
+      </div>
 
-    <h1>I Help Businesses</h1>
-    <h1>Run Smoother Systems</h1>
+      <div class="showcase reveal visible">
+        <div class="light-sweep"></div>
 
-    <p class="lead">
-      I support businesses with system monitoring, CRM tools, and data management.
-      From cleaning data in Google Sheets to handling SQL updates, I focus on making workflows efficient and reliable.
-    </p>
+        <div class="stack">
+          <div class="ghost-card"></div>
 
-    <div class="actions">
-      <a href="#contact" class="btn">Hire Me</a>
-      <a href="#skills" class="btn outline">View Skills</a>
-    </div>
-  </div>
+          <div class="main-card">
+            <div class="flip-wrap" id="profileFlip">
+              <div class="face front">
+                <div class="photo-area">
+                  <img src="assets/profile.jpg" alt="Arvin profile photo" />
+                </div>
+              </div>
 
-  <div class="hero-right">
-    <img src="assets/profile.jpg" alt="profile">
-  </div>
+              <div class="face back">
+                <div class="avatar-shell">
+                  <div class="avatar-ring">
+                    <img src="assets/avatar.png" alt="Avatar version of Arvin" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-</section>
+          <div class="ghost-card ghost-card-2"></div>
+        </div>
+      </div>
+    </section>
 
-<!-- SERVICES -->
-<section class="section container" id="services">
-  <h2>Services</h2>
+    <section class="section container" id="services">
+      <div class="section-title reveal">
+        <h2>Services</h2>
+        <p>
+          I help businesses improve daily operations with cleaner systems,
+          better data handling, and stronger workflow support.
+        </p>
+      </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3>System Monitoring</h3>
-      <p>Tracking systems and keeping operations smooth.</p>
-    </div>
+      <div class="services-grid">
+        <div class="glass service reveal">
+          <div class="service-icon">📡</div>
+          <h3>System Monitoring</h3>
+          <p>Tracking systems, processes, and updates to keep daily operations running smoothly.</p>
+        </div>
 
-    <div class="card">
-      <h3>Data & Google Sheets</h3>
-      <p>Cleaning data and building structured trackers.</p>
-    </div>
+        <div class="glass service reveal">
+          <div class="service-icon">📊</div>
+          <h3>Data & Google Sheets</h3>
+          <p>Cleaning data, organizing sheets, building trackers, and improving workflow visibility.</p>
+        </div>
 
-    <div class="card">
-      <h3>CRM Tools</h3>
-      <p>Managing customer data and workflows.</p>
-    </div>
+        <div class="glass service reveal">
+          <div class="service-icon">🧾</div>
+          <h3>CRM Tools</h3>
+          <p>Managing customer data, tracking activities, and keeping workflows organized inside CRM systems.</p>
+        </div>
 
-    <div class="card">
-      <h3>SQL Updates</h3>
-      <p>Handling structured database updates.</p>
-    </div>
-  </div>
-</section>
+        <div class="glass service reveal">
+          <div class="service-icon">🗄️</div>
+          <h3>SQL Updates</h3>
+          <p>Handling SQL updates and structured database records with accuracy and consistency.</p>
+        </div>
+      </div>
+    </section>
 
-<!-- SKILLS -->
-<section class="section container" id="skills">
-  <h2>Skills</h2>
+    <section class="section container" id="skills">
+      <div class="section-title reveal">
+        <h2>Skills</h2>
+        <p>
+          My focus is on reliable support, clean data, and systems that help businesses
+          stay organized and efficient.
+        </p>
+      </div>
 
-  <div class="grid">
-    <div class="card">Data Management</div>
-    <div class="card">Google Sheets</div>
-    <div class="card">SQL</div>
-    <div class="card">CRM & Monitoring</div>
-  </div>
-</section>
+      <div class="services-grid">
+        <div class="glass service reveal">
+          <div class="service-icon">📁</div>
+          <h3>Data Management</h3>
+          <p>Cleaning, organizing, and maintaining structured data for better workflow clarity.</p>
+        </div>
 
-<!-- CONTACT -->
-<section class="section container" id="contact">
-  <h2>Contact</h2>
+        <div class="glass service reveal">
+          <div class="service-icon">🧮</div>
+          <h3>Google Sheets</h3>
+          <p>Advanced formulas, data cleaning, workflow trackers, and structured sheet management.</p>
+        </div>
 
-  <p>Email: arvinphilippoliga@gmail.com</p>
-  <p>WhatsApp: +971 54 428 3795</p>
-</section>
+        <div class="glass service reveal">
+          <div class="service-icon">💾</div>
+          <h3>SQL</h3>
+          <p>Database updates, structured data handling, and maintaining accurate records.</p>
+        </div>
 
-<script>
-const g = document.getElementById("greeting");
-const h = new Date().getHours();
+        <div class="glass service reveal">
+          <div class="service-icon">📈</div>
+          <h3>CRM & Monitoring</h3>
+          <p>Knowledgeable in CRM tools, system monitoring, and keeping processes running smoothly.</p>
+        </div>
+      </div>
+    </section>
 
-if (h < 12) g.innerText = "Good Morning,";
-else if (h < 18) g.innerText = "Good Afternoon,";
-else g.innerText = "Good Evening,";
-</script>
+    <section class="section container" id="projects">
+      <div class="section-title reveal">
+        <h2>Projects</h2>
+        <p>
+          Examples of work focused on operations support, monitoring, and better workflow management.
+        </p>
+      </div>
 
+      <div class="projects-grid">
+        <div class="glass project reveal">
+          <div class="project-tag">System Monitoring</div>
+          <h3>Order Monitoring Workflow</h3>
+          <p>Built a workflow that checks activity, tracks changes, and keeps operations updated in real time.</p>
+        </div>
+
+        <div class="glass project reveal">
+          <div class="project-tag">Data Management</div>
+          <h3>Google Sheets Tracking System</h3>
+          <p>Created structured workflows for cleaner data handling, better visibility, and easier daily management.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="contact">
+      <div class="section-title reveal">
+        <h2>Contact</h2>
+        <p>If you need help with system monitoring, CRM tools, Google Sheets, or SQL updates, I’m available for freelance and remote work.</p>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="glass contact-card reveal">
+          <h3>Contact Details</h3>
+          <div class="contact-link">
+            <div><strong>Email</strong><br><span>arvinphilippoliga@gmail.com</span></div>
+            <a href="mailto:arvinphilippoliga@gmail.com">Open</a>
+          </div>
+          <div class="contact-link">
+            <div><strong>WhatsApp</strong><br><span>+971 54 428 3795</span></div>
+            <a href="https://wa.me/971544283795" target="_blank">Chat</a>
+          </div>
+          <div class="contact-link">
+            <div><strong>GitHub</strong><br><span>github.com/LuffyAnonymous</span></div>
+            <a href="https://github.com/LuffyAnonymous" target="_blank">Visit</a>
+          </div>
+        </div>
+
+        <div class="glass contact-card reveal">
+          <h3>Need reliable support for your systems?</h3>
+          <p>I can help with CRM tools, SQL updates, system monitoring, and clean data handling in Google Sheets.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:arvinphilippoliga@gmail.com">Send an Email</a>
+            <a class="btn btn-secondary" href="https://wa.me/971544283795" target="_blank">Message on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
